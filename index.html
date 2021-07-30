@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 정예은 웹퍼블리셔 포트폴리오 </title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:regular,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/keyframes.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="apple-touch-icon" href="images/favicon/apple-icon-180x180.png">
+  <link rel="shortcut icon" href="images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <!-- <script src="js/portfolio_ing.js"></script> -->
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <div class="cursor_wrap">
+    <div class="cursor first_cursor"></div>
+    <div class="cursor second_cursor"></div>
+  </div>
+
+  <div class="wrap">
+    <div id="ipod">
+      <div class="use_ipod">
+        <strong>How to use (3 ways)</strong>
+        <p>
+          <span>마우스) 1. 원하는 list를 더블 클릭한다.</span>
+          <span>마우스) 2. list를 한 번 클릭한 뒤 ▶(재생버튼)을 클릭한다.</span>
+          <span>키보드) 3. 원하는 list를 Enter(또는 spacebar)를 눌러 선택한 뒤, 위(↑) 방향키를 누른다.</span>
+        </p>
+      </div>
+      <button type="button" class="btn_ipod">
+        <img src="images/ipod.png" alt="">
+        <span class="click" aria-label="메뉴 열기(아이팟 모양)">click</span>
+      </button>
+      <div id="ipodScreen">
+        <div class="ipod_head">
+          <h2>My list</h2>
+          <div class="head_right">
+            <img src="images/play.png" alt="" class="play">
+            <img src="images/battery.png" alt="" class="battery">
+          </div>
+        </div>
+        <ul class="ipod_list">
+          <li><a href="" class="first">Home</a></li>
+          <li><a href="">Portfolio</a></li>
+          <li><a href="" class="end">About me</a></li>
+        </ul>
+      </div>
+      <button type="button" class="btn_close close"><img src="images/close-cross.png" alt="닫기"></button>
+      <div class="btn_ctrl">
+        <ul>
+          <li class="btn_left">
+            <button type="button"><img src="images/btn_left.png" alt="이전 버튼"></button>
+          </li>
+          <li class="btn_right">
+            <button type="button"><img src="images/btn_right.png" alt="다음 버튼"></button>
+          </li>
+          <li class="btn_play">
+            <button type="button"><img src="images/btn_play.png" alt="해당 페이지로 이동 버튼"></button>
+          </li>
+          <li class="btn_return close">
+            <button type="button" class="last"><img src="images/btn_return.png" alt="닫기 버튼"></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="contents">
+      <section id="cnt1" class="section">
+        <div id="intro">
+          <h2 class="txt">
+            <p id="txt1">어떤 사람들은 디자인이 어떻게 보여질 것인가 (how it looks)를 의미한다고 생각하죠.</p>
+            <p id="txt2">하지만 조금만 깊이 생각한다면,</p>
+            <p id="txt3">당연히 그것은 <span class="stress">어떻게 작동하는가 (how it works)</span> 를 의미합니다.</p>
+          </h2>
+          <p id="txt4">- Steve jobs -</p>
+          <button class="arrow" type="button"></button>
+        </div>
+        <div id="welcome">
+          <div class="txt_bg" aria-hidden="true">
+            <p>JEONG</p>
+            <p>YEEUN</p>
+          </div>
+          <div class="txt_front">
+            <h2>Welcome to my web!<br>I'm Yeeun Jeong, web publisher.<br>Scroll and click to enjoy my work ;D</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="cnt2" class="section">
+        <div class="portfolio_ss">
+          <div class="sticky_ss">
+            <div class="intro_sulwhasoo fade">
+              <span class="scroll_down">Scroll<br>Down</span>
+              <div class="txt_sulwhasoo main_tit fade_right">
+                <strong>01</strong>
+                <h2>Sulwhasoo</h2>
+                <p>제가 팀을 이루어 처음으로 만든 리뉴얼 페이지 입니다.<br>
+                  우리나라의 대표 한방 화장품 브랜드인 설화수 홈페이지를 리뉴얼<br> 하였습니다. 2030세대들의 피부 노화 대비를 위한 수요가<br> 늘어남에 따라 다양한 연령층을 고려하여
+                  고급지고 세련된<br> 이미지를 살리고자 제작하게 되었습니다.
+                  여기서 저는 <br>'Brand Story', 'Newsletter', 'footer' 부분에 참여하였습니다.</p>
+                <div class="btn_more_wrap">
+                  <a href="https://jye104.github.io/sulwhasoo/brand/brand.html" class="btn_more" target="_blank">Go
+                    webite</a>
+                  <svg>
+                    <rect class="square" /></svg>
+                </div>
+              </div>
+              <div class="computer fade">
+                <div class="monitor fade_left">
+                  <img src="images/monitor1000.png" alt="컴퓨터 모니터">
+                  <div class="monitor_wrap"><img src="images/sulwhasoo_brand_story.jpg" alt="모니터 속에 보이는 설화수 브랜드스토리 페이지"
+                      class="up_img"></div>
+                </div>
+              </div>
+              <div class="brand_txt sub_tit">
+                <h3>Brand Story</h3>
+                <p>기존 사이트의 단순하고 정적인 느낌을 탈피하여, 요즘 트랜드에 맞추어 Fullpage,<br> Swiper, fade 효과를 사용하였습니다.
+                  20-30대 연령층 뿐만아니라<br> 기존 4-50대 연령까지 아우르도록 차분한 색상과 분위기로 만들었습니다. </p>
+              </div>
+            </div>
+          </div>
+          <div class="newsletter">
+            <div class="bg_sulwhasoo">
+              <p aria-hidden="true" class="tranX1">Sulwhasoo</p>
+              <p aria-hidden="true" class="tranX2">Sulwhasoo</p>
+              <p aria-hidden="true" class="tranX3">Sulwhasoo</p>
+              <p aria-hidden="true" class="tranX4">Sulwhasoo</p>
+              <p aria-hidden="true" class="tranX5">Sulwhasoo</p>
+              <p aria-hidden="true" class="tranX6">Sulwhasoo</p>
+            </div>
+            <div class="news_txt sub_tit fade">
+              <h3 class="fade_down">Newsletter</h3>
+              <p class="fade_down">관련 뉴스의 간단한 설명과 대표 사진을 한 눈에 알아보기 쉽게 배치시켜 가독성을<br>
+                높였습니다. 컨텐츠의 높이를 조금씩 다르게 나열하여 단조로워 보이지 않도록 <br>하였고, 기준 높이를 정하여 프라임안에 들어오도록 깔끔하게 배치하였습니다.</p>
+            </div>
+            <div class="fade"><img src="images/sulwhasoo_news.jpg" alt="설화수 뉴스레터 페이지" class="fade_down"></div>
+            <div class="news_hover_txt fade">
+              <svg width="283.93" height="98.642" viewBox="0 0 283.93 98.642" class="fade_up">
+                <g transform="translate(-1025 -3863.477)">
+                  <circle cx="6" cy="6" r="6" transform="translate(1028 3931)" />
+                  <path d="M1034,11758s168.851,63.849,196.977-20.749,78.126-37.924,78.126-37.924"
+                    transform="translate(0 -7821)" />
+                </g>
+              </svg>
+              <strong class="fade_up">hover, focus 효과</strong>
+              <p class="fade_up">이미지에 검정 마스크를 씌우고 <br>
+                해당 뉴스에 관련된 주요 키워드를 <br>
+                해시태그로 표현하여 어떤 내용의 <br>
+                뉴스인지 바로 확인 가능하도록<br>
+                나타내어 가독성을 높임</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio_ww">
+          <div class="txt_withWine main_tit">
+            <strong>02</strong>
+            <h2>With Wine</h2>
+            <p>격식 있는 자리나 고급진 레스토랑에서만 즐길 수 있는 와인이 아닌,<br>
+              누구나 쉽게 어디에서나 즐길 수 있는 가상의 온라인 와인샵을<br>
+              만들었습니다. 반응형으로 구성하여 태블릿, 모바일로도 쉽게<br>
+              접근할 수 있도록 제작하였습니다.</p>
+            <div class="btn_more_wrap">
+              <a href="https://jye104.github.io/withWine/" class="btn_more" target="_blank">
+                Go website</a>
+              <svg>
+                <rect class="square" /></svg>
+            </div>
+          </div>
+          <div class="right_ww">
+            <img src="images/withwineAll.png" alt="4가지 모니터별로 보이는 with wine 홈페이지">
+            <button type="button" class="md_open_btn" aria-haspopup="dialog" title="1920 해상도 모달창 열기" data-href="#modal1">
+              <span aria-hidden="true">+</span>
+            </button>
+            <button type="button" class="md_open_btn" aria-haspopup="dialog" title="1440 해상도 모달창 열기" data-href="#modal2">
+              <span aria-hidden="true">+</span>
+            </button>
+            <button type="button" class="md_open_btn" aria-haspopup="dialog" title="1080 해상도 모달창 열기" data-href="#modal3">
+              <span aria-hidden="true">+</span>
+            </button>
+            <button type="button" class="md_open_btn" aria-haspopup="dialog" title="770 해상도 모달창 열기" data-href="#modal4">
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <section id="cnt3" class="section">
+        <div class="cnt3_wrap">
+          <div class="sticky">
+            <strong>Click me!</strong>
+            <ul class="sticky_btn">
+              <li>
+                <button type="button" class="normal" title="기본 화면으로 보기">
+                  <img src="images/wink.png" alt="윙크하고 있는 아이콘">
+                </button>
+              </li>
+              <li>
+                <button type="button" class="spring" title="봄 느낌의 화면으로 보기">
+                  <!-- 봄 : 꽃잎 -->
+                  <img src="images/spring.png" alt="꽃 아이콘">
+                </button>
+              </li>
+              <li>
+                <button type="button" class="summer" title="여름 느낌의 화면으로 보기">
+                  <!-- 여름 : 물방울, 물결 -->
+                  <img src="images/summer.png" alt="물방울 아이콘">
+                </button>
+              </li>
+              <li>
+                <button type="button" class="fall" title="가을 느낌의 화면으로 보기">
+                  <!-- 가을 : 나뭇잎, 단풍 -->
+                  <img src="images/fall.png" alt="나뭇잎 아이콘">
+                </button>
+              </li>
+              <li>
+                <button type="button" class="winter" title="겨울 느낌의 화면으로 보기">
+                  <!-- 겨울 : 눈보라 눈사람 -->
+                  <img src="images/winter.png" alt="눈오는 구름 아이콘">
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="contents">
+            <div class="decoration">
+              <div class="bg_deco deco1"></div>
+              <div class="bg_deco deco2"></div>
+              <div class="bg_deco deco3"></div>
+              <div class="bg_deco deco4"></div>
+              <div class="bg_deco deco5"></div>
+              <div class="bg_deco deco6"></div>
+              <div class="bg_deco deco7"></div>
+              <div class="bg_deco deco8"></div>
+              <div class="bg_deco deco9"></div>
+              <div class="bg_deco deco10"></div>
+            </div>
+            <div class="about_tit fade">
+              <h2 class="fade_right">나는 누구일까요?</h2>
+              <img src="images/about.png" alt="정예은 카카오 이모지" class="fade_right">
+            </div>
+            <div class="controller">
+              <div class="p_n">
+                <button type="button" id="prev">prev</button>
+                <button type="button" id="next">next</button>
+              </div>
+              <div class="pagination">
+                <ul>
+                  <li>
+                    <button type="button" class="page_btn">
+                      <span class="icon"></span>
+                      <span class="txt">About me</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="page_btn">
+                      <span class="icon"></span>
+                      <span class="txt">Accessibility</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="page_btn">
+                      <span class="icon"></span>
+                      <span class="txt">Skill</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="page_btn">
+                      <span class="icon"></span>
+                      <span class="txt">Contact</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sticky_cnt">
+              <div id="container_wrap">
+                <div class="container info fade">
+                  <div class="photo_hover fade_right">
+                    <img src="images/hover.png" alt="손가락 모양" class="hover">
+                    <div class="front"><img src="images/about_img.jpg" alt=""></div>
+                    <div class="back"><img src="images/about_img2.jpg" alt=""></div>
+                  </div>
+                  <div class="info_txt fade_left">
+                    <p class="hello">H<span class="ello">ello</span></p>
+                    <p> 안녕하세요 <br>웹퍼블리셔 <strong class="name">정예은</strong>입니다.</p>
+                    <p>저는 비전공자이지만 4개월간 <strong>'UXUI 웹디지이너 과정'</strong>을 열심히 수강하여<br> 지금의 포트폴리오와 작업물을 만들어 수료할 수 있었습니다.
+                      과정
+                      이후에도 <br>정체되어있지 않고, 발전을 위해 끊임없이 공부하며 <strong>발전된 모습</strong>을 보여드리겠습니다.</p>
+                  </div>
+                  <div class="deco"></div>
+                </div>
+                <div class="container wa fade">
+                  <div class="wa_txt fade_left">
+                    <p><strong>웹표준 및 웹접근성</strong>을 지키기 위해 노력합니다. 제가 만든<br> 사이트는 장애인이든 비장애인이든, 누구나 <strong>제약없이</strong>
+                      <br>이용하도록 접근성을 지킨 마크업을 하도록 노력합니다.</p>
+                    <p class="ex"> ex) tab, modal, slider 등의 aria, 또는 form 태그의 label 등</p>
+                  </div>
+                  <div class="photo_hover fade_right">
+                    <img src="images/hover2.png" alt="손가락 모양" class="hover">
+                    <div class="front">
+                      <img src="images/withwine_w3c.jpg" alt="위드와인 페이지 w3c에서 마크업,css 준수 인증 받은 화면">
+                    </div>
+                    <div class="back">
+                      <img src="images/markup.jpg" alt="form태그의 접근성을 준수한 마크업 화면, tab contents에 aria로 접근성을 준수한 마크업 화면">
+                    </div>
+                  </div>
+                  <div class="deco"></div>
+                </div>
+                <div class="container skill fade">
+                  <div class="skill_txt fade_down">
+                    <h2>이런 것을 다룰 수 있어요 <img src="images/like.png" alt="엄지손가락"></h2>
+                    <p>* 마우스를 가까이 대거나 키보드로 focus를 보내보세요!</p>
+                  </div>
+                  <ul class="skill_list fade_up">
+                    <li><img src="images/html.png" alt=""><span>Html</span></li>
+                    <li><img src="images/css.png" alt=""><span>Css</span></li>
+                    <li><img src="images/sass.png" alt=""><span>Sass</span></li>
+                    <li><img src="images/javascript.png" alt=""><span>Javascript <br>&amp; jQuery</span></li>
+                  </ul>
+                  <ul class="skill_list fade_up">
+                    <li><img src="images/photoshop.png" alt=""><span>Photoshop</span></li>
+                    <li><img src="images/xd.png" alt=""><span>XD</span></li>
+                    <li><img src="images/zeppelin.png" alt=""><span>Zeplin</span></li>
+                    <li><img src="images/github.png" alt=""><span>Github</span></li>
+                  </ul>
+                  <div class="deco"></div>
+                </div>
+                <div class="container contact fade">
+                  <div class="contact_txt fade_right">
+                    <h3>CONTACT ME!</h3>
+                    <p><img src="images/location.png" alt="address">경기도 성남시</p>
+                    <p><img src="images/mail.png" alt="e-mail">jye104@nate.com</p>
+                    <p><img src="images/github.png" alt="github">https://github.com/jye104</p>
+                    <p class="stress">항상 배움의 자세로 임하겠습니다.<br> 언제든 연락주세요!</p>
+                  </div>
+                  <img src="images/about_img3.jpg" alt="거울에서 찍은 정예은 사진" class="fade_left">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- with Wine 모달창 -->
+  <div class="md_box" id="modal1" role="dialog" aria-modal="true" aria-labelledby="mdTit1">
+    <div class="md_sticky_wrap">
+      <div class="md_img">
+        <img src="images/modal/1920.jpg" alt="with Wine 1920 해상도로 본 화면">
+      </div>
+      <div class="md_sticky">
+        <h3>1920 해상도</h3>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section1</strong>
+          <p>with Wine에 대한 소개로 사진과 글 하나씩만 배열하여 사용자가 한 눈에 확인할 수 있도록 구성. <br>정적인 이미지가 아닌 hover했을 때 마우스를 따라 이미지가 움직이는 효과
+          </p>
+          <div class="md_hover">
+            <img src="images/modal/1920_nav.jpg" alt="pc 네비게이션이 열린 화면">
+            <span>PC버전의 네비게이션: hover나 focus로 했을 때 그려지는 원 svg 효과</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section2</strong>
+          <p>베스트 셀러인 with Wine의 대표 와인 7가지를 슬라이더 형식으로 나열</p>
+          <div class="pc_cnt2 md_hover">
+            <img src="images/modal/1920_cnt2.jpg" alt="">
+            <span>마우스 가까이 했을때(혹은 키보드로 focus가 갔을 때) 각 와인마다 쓰이는 대표 재료가 보임</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section3</strong>
+          <p>매달 집 앞으로 배송되는 와인구독에 대한 설명을 슬라이드 형식으로 나열</p>
+          <div class="pc_cnt3 md_hover">
+            <img src="images/modal/1920_cnt3.jpg" alt="">
+            <span>슬라이더 버튼 눌렀을때 와인구독에 대한 설명을 나열함</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section4</strong>
+          <p> 현재 진행중인 4가지 이벤트에 대한 화면 </p>
+          <div class="pc_cnt4 md_hover">
+            <img src="images/modal/1920_cnt4.jpg" alt="">
+            <span>마우스 가까이 했을때(혹은 키보드로 focus가 갔을 때) 보이는 이벤트 화면</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section5</strong>
+          <p>최근 나온 칼럼과 뉴스를 sticky로 표현</p>
+          <div class="pc_cnt5 md_hover">
+            <img src="images/modal/1920_cnt5.jpg" alt="">
+            <span>마우스 가까이 했을때(혹은 키보드로 focus가 갔을 때) 컨텐츠가 위로 올라가고 그림자가 생기는 효과</span>
+          </div>
+        </div>
+        <button class="md_close_btn" type="button" data-link="last">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="md_box" id="modal2" role="dialog" aria-modal="true" aria-labelledby="mdTit2">
+    <div class="md_sticky_wrap">
+      <div class="md_img">
+        <img src="images/modal/1440.jpg" alt="with Wine 1440 해상도로 본 화면">
+      </div>
+      <div class="md_sticky">
+        <h3>1440 해상도</h3>
+        <div class="hover_wrap">
+          <p>* 1920 해상도로 볼 때와 같은 디자인으로, <strong>media query</strong>를 통해 화면이 줄어들면서 틀어지는 컨텐츠간의 간격이나 너비, 높이, 작아지는 글씨 크기 등을
+            조절</p>
+        </div>
+        <button class="md_close_btn" type="button" data-link="last">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="md_box" id="modal3" role="dialog" aria-modal="true" aria-labelledby="mdTit3">
+    <div class="md_sticky_wrap">
+      <div class="md_img">
+        <img src="images/modal/1080.jpg" alt="with Wine 1080 해상도로 본 화면">
+      </div>
+      <div class="md_sticky">
+        <h3>1080 해상도</h3>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section1</strong>
+          <p>PC 화면과 동일, 사진의 크기와 글자와의 간격을 조절 </p>
+          <div class="md_hover">
+            <img src="images/modal/1080_nav.jpg" alt="모바일 네비게이션이 열린 화면">
+            <span>Mobile 네비게이션: 기본적인 네비게이션. 클릭하면 열리는 깔끔한 구성</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <strong>Section2</strong>
+          <p>hover, focus 효과를 잘 느끼지 못하는 1080해상도(태블릿)에서는, 가운데에 오는 대표 와인의 크기를 키우고 hover나 focus했을 때 나타나는 효과를 나타냄</p>
+        </div>
+        <div class="hover_wrap">
+          <strong>Section3</strong>
+          <p>PC 화면에서는 가로배열이었다면, 1080 해상도에서는 세로로 나열 </p>
+        </div>
+        <div class="hover_wrap">
+          <img src="images/modal/loupe.png" alt="돋보기" class="loupe" data-link="first">
+          <strong>Section4</strong>
+          <p>세로로 정렬되어 있던 4가지 이벤트를 가로로 정렬 </p>
+          <div class="md_hover tb_cnt4">
+            <img src="images/modal/1080_cnt4.jpg" alt="">
+            <span>hover, focus 효과 또한 가로로 나타나도록 구성</span>
+          </div>
+        </div>
+        <div class="hover_wrap">
+          <strong>Section5</strong>
+          <p>sticky 옆으로 스크롤 되는 컨텐츠를 한 줄로 나열</p>
+        </div>
+        <button class="md_close_btn" type="button" data-link="last">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="md_box" id="modal4" role="dialog" aria-modal="true" aria-labelledby="mdTit4">
+    <div class="md_sticky_wrap">
+      <div class="md_img">
+        <img src="images/modal/770.jpg" alt="">
+      </div>
+      <div class="md_sticky">
+        <h3>770 해상도</h3>
+        <div class="hover_wrap">
+          <p>* 1080 해상도로 볼 때와 같은 디자인으로, <strong>media query</strong>를 통해 화면이 줄어들면서 틀어지는 컨텐츠간의 간격이나 너비, 높이, 작아지는 글씨 크기 등을
+            조절</p>
+          <p> Section5) Column &amp; News 부분은 너비가 줄어들어 sticky 적용을 없애고 세로로 간단하게 나열시킴</p>
+        </div>
+        <button class="md_close_btn" type="button" data-link="last">닫기</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

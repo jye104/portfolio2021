@@ -1,0 +1,275 @@
+@charset "utf-8";
+@import "_mixin";
+/* fonts */
+@font-face {
+  font-family: NotoSansKR;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/NotoSansKR-Light.eot");
+  src: local("Noto Sans KR"),
+      url("../fonts/NotoSansKR-Light.eot") format("embedded-opentype"),
+      url("../fonts/NotoSansKR-Light.woff2") format("woff2"),
+      url("../fonts/NotoSansKR-Light.woff") format("woff"),
+      url("../fonts/NotoSansKR-Light.otf") format("opentype"),
+      url("../fonts/NotoSansKR-Light.svg#NotoSansKR") format('svg');
+}
+@font-face {
+  font-family: NotoSansKR;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/NotoSansKR-Regular.eot");
+  src: local("Noto Sans KR"),
+      url("../fonts/NotoSansKR-Regular.eot") format("embedded-opentype"),
+      url("../fonts/NotoSansKR-Regular.woff2") format("woff2"),
+      url("../fonts/NotoSansKR-Regular.woff") format("woff"),
+      url("../fonts/NotoSansKR-Regular.otf") format("opentype"),
+      url("../fonts/NotoSansKR-Regular.svg#NotoSansKR") format('svg');
+}
+@font-face {
+  font-family: NotoSansKR;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/NotoSansKR-Bold.eot");
+  src: local("Noto Sans KR"),
+      url("../fonts/NotoSansKR-Bold.eot") format("embedded-opentype"),
+      url("../fonts/NotoSansKR-Bold.woff2") format("woff2"),
+      url("../fonts/NotoSansKR-Bold.woff") format("woff"),
+      url("../fonts/NotoSansKR-Bold.otf") format("opentype"),
+      url("../fonts/NotoSansKR-Bold.svg#NotoSansKR") format('svg');
+}
+@font-face {
+  font-family: NotoSansKR;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/NotoSansKR-Black.eot");
+  src: local("Noto Sans KR"),
+      url("../fonts/NotoSansKR-Black.eot") format("embedded-opentype"),
+      url("../fonts/NotoSansKR-Black.woff2") format("woff2"),
+      url("../fonts/NotoSansKR-Black.woff") format("woff"),
+      url("../fonts/NotoSansKR-Black.otf") format("opentype"),
+      url("../fonts/NotoSansKR-Black.svg#NotoSansKR") format('svg');
+}
+
+/* tag reset */
+body, h1, h2, h3, ul, p, button, figure{padding: 0; margin: 0;}
+h1, h2, h3{font-size: 100%;}
+button{border: none; background: none; color: inherit; font-size: inherit; font-family: inherit; cursor: pointer;}
+img{vertical-align: top;}
+ul{list-style: none;}
+a:link, a:visited, a:hover, a:active{text-decoration: none; color: inherit;}
+section, figure{display: block;}
+
+/* common class */
+.p_r{position: relative;}
+.p_a{position: absolute;}
+.p_f{position: fixed;}
+.d_b{display: block;}
+.d_n{display: none !important;}
+.hidden{visibility: hidden;}
+.blind{width: 1px;height: 1px;overflow: hidden;border: none;position: absolute;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
+.opacity{opacity: 0 !important;}
+.visible{opacity: 1 !important; visibility: visible !important;}
+.white{color: #fff;}
+.main_tit{
+  h2{
+    font-size: 70px; color: transparent; line-height: 1; font-weight: 900; text-align: center;
+  }
+  p{padding: 20px 0; line-height: 1.7; font-size: 18px;}
+}
+.sub_tit{
+  h3, p{padding: 20px 35px;}
+  h3{@include transition(all 0.3s);
+    font-size: 55px; line-height: 1; font-weight: 900;
+    &:hover{margin-top: 5px;}
+  }
+  p{
+    line-height: 2; /*  width: 50%;  */ background:rgba(255, 255, 255, 0.3); border-radius: 0 30px 0 30px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+.btn_more_wrap{
+  position: relative; z-index: 102; text-align: center;
+  a, svg, .square{width: 150px; height: 40px;}
+  a{
+    @include translateX-50;
+    font-size: 18px; position: absolute; top: 0; left: 50%; text-align: center; line-height: 40px; display: block;}
+  .square{stroke-dasharray: 400 20; stroke-width: 7; fill: none; stroke: #f57e3c;stroke-dashoffset: -420;}
+  &:hover a + svg .square, &:focus + svg .square{
+    animation: square 1s ease 0s 1 normal forwards;
+  }
+}
+.hover{
+  @include transition(transform 0.3s); 
+  position: absolute; bottom: -60px; right: -60px; width: 60px; height: 60px; z-index: 2; animation: hover 1s alternate-reverse infinite;
+}
+.photo_hover{
+  position: relative; 
+  div{
+    @include transition(all 0.5s);
+    position: absolute; top: 0; left: 0; backface-visibility: hidden;
+    &.front{
+      @include transform(rotateY(0deg));
+    }
+    &.back{
+      @include transform(rotateY(-180deg));
+    }    
+  }
+  &:hover .front, &.flip .front{
+    @include transform(rotateY(180deg));
+  }
+  &:hover .back, &.flip .back{
+    @include transform(rotateY(0deg));
+  }
+} 
+//fade 효과
+.fade .fade_up, .fade .fade_down, .fade .fade_right, .fade .fade_left{
+  @include transition(all 0.8s);
+  opacity: 0;
+}
+.fade.on .fade_up, .fade.on .fade_down, .fade.on .fade_right, .fade.on .fade_left{
+  @include transform(translate(0,0));
+  opacity: 1;
+}
+.fade .fade_up{
+  @include transform(translate(0,100px));
+}
+.fade .fade_down{
+  @include transform(translate(0,-100px));
+}
+.fade .fade_right{
+  @include transform(translate(-100px,0));
+}
+.fade .fade_left{
+  @include transform(translate(100px,0));
+}
+.delay-3{
+  @include transition-delay(0.3s);
+}
+.winter .bg_deco{
+  background: no-repeat center / cover; position: absolute;
+  &.deco1{
+    @include transform(scale(0.9));
+    opacity: 0.2; background: no-repeat center / cover;
+    animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  &.deco2{          
+    @include transform(scale(0.6));
+    left: 1320px; opacity: 0.5; animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+  }
+  &.deco3{
+    @include transform(scale(1));
+    left: 180px; opacity: 0.3; animation: moveclouds 22s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  &.deco4{
+    @include transform(scale(0.75));
+    left: 1810px; opacity: 0.35; animation: moveclouds 18s linear infinite, sideWays 6s ease-in-out infinite alternate;
+  }
+  &.deco5{
+    @include transform(scale(0.8));
+    left: 350px; opacity: 0.3; animation: moveclouds 27s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  }
+  &.deco6{
+    @include transform(scale(0.95));
+    left: 630px; opacity: 0.3; animation: moveclouds 13s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  &.deco7{
+    @include transform(scale(0.45));
+    left: 850px; opacity: 0.7; animation: moveclouds 20s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  }
+  &.deco8{
+    @include transform(scale(0.5));
+    left: 980px; opacity: 0.5; animation: moveclouds 15s linear infinite, sideWays 6s ease-in-out infinite alternate;
+  }
+  &.deco9{
+    @include transform(scale(0.85));
+    left: 1640px; opacity: 0.8; animation: moveclouds 17s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  &.deco10{
+    @include transform(scale(0.6));
+    left: 1000px; opacity: 0.9; animation: moveclouds 23s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  }
+}
+.summer .bg_deco{
+  position: absolute; background: rgb(84, 175, 221); width: 150px; height: 150px; transform-origin: 50% 48%; border-radius: 43%;/*  animation: , drift 3000ms infinite linear; */
+
+  &.deco1{
+    opacity: 0.2; background: no-repeat center / cover; left: 0;
+    animation: moveclouds 22s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  &.deco2{    
+    left: 1320px; opacity: 0.5; animation: moveclouds2 25s linear infinite, sideWays 5s ease-in-out infinite alternate, drift 3000ms infinite linear; width: 50px; height: 50px;
+  }
+  &.deco3{
+    left: 180px; opacity: 0.3; animation: moveclouds2 20s linear infinite, sideWays 4s ease-in-out infinite alternate, drift 3000ms infinite linear;
+    width: 60px; height: 60px;
+  }
+  &.deco4{    
+    left: 1210px; opacity: 0.35; animation: moveclouds2 18s linear infinite, sideWays 6s ease-in-out infinite alternate, drift 3000ms infinite linear;
+  }
+  &.deco5{
+    left: 350px; opacity: 0.3; animation: moveclouds2 28s linear infinite, sideWays 2s ease-in-out infinite alternate, drift 3000ms infinite linear;
+  }
+  &.deco6{    
+    left: 630px; opacity: 0.3; animation: moveclouds2 13s linear infinite, sideWays 4s ease-in-out infinite alternate, drift 3000ms infinite linear;
+  }
+  &.deco7{    
+    left: 850px; opacity: 0.7; animation: moveclouds2 20s linear infinite, sideWays 3s ease-in-out infinite alternate, drift 3000ms infinite linear; width: 70px; height: 70px;
+  }
+  &.deco8{
+    left: 80px; opacity: 0.5; animation: moveclouds2 15s linear infinite, sideWays 6s ease-in-out infinite alternate, drift 3000ms infinite linear;
+  }
+  &.deco9{    
+    left: 1540px; opacity: 0.8; animation: moveclouds2 17s linear infinite, sideWays 4s ease-in-out infinite alternate, drift 3000ms infinite linear;
+  }
+  &.deco10{
+    left: 1000px; opacity: 0.9; animation: moveclouds2 23s linear infinite, sideWays 2s ease-in-out infinite alternate, drift 3000ms infinite linear; width: 80px; height: 80px;
+  }
+}
+.spring .bg_deco, .fall .bg_deco{
+  background: no-repeat center / cover; position: absolute;
+  &.deco1{
+    @include transform(scale(0.9));
+    opacity: 0.2; background: no-repeat center / cover;
+    animation: moveclouds 22s linear infinite, sideWays2 4s ease-in-out infinite alternate;
+  }
+  &.deco2{          
+    @include transform(scale(0.62));
+    left: 1320px; opacity: 0.5; animation: moveclouds2 25s linear infinite, sideWays2 5s ease-in-out infinite alternate;
+  }
+  &.deco3{
+    @include transform(scale(1));
+    left: 180px; opacity: 0.3; animation: moveclouds2 20s linear infinite, sideWays2 4s ease-in-out infinite alternate;
+  }
+  &.deco4{
+    @include transform(scale(0.75) rotate(10deg));
+    left: 1210px; opacity: 0.35; animation: moveclouds2 18s linear infinite, sideWays2 6s ease-in-out infinite alternate;
+  }
+  &.deco5{
+    @include transform(scale(0.8) rotate(70deg));
+    left: 350px; opacity: 0.3; animation: moveclouds2 28s linear infinite, sideWays2 2s ease-in-out infinite alternate;
+  }
+  &.deco6{
+    @include transform(scale(0.95) rotate(-45deg));
+    left: 630px; opacity: 0.3; animation: moveclouds2 13s linear infinite, sideWays2 4s ease-in-out infinite alternate;
+  }
+  &.deco7{
+    @include transform(scale(0.86) rotate(45deg));
+    left: 850px; opacity: 0.7; animation: moveclouds2 20s linear infinite, sideWays2 3s ease-in-out infinite alternate;
+  }
+  &.deco8{
+    @include transform(scale(0.5));
+    left: 980px; opacity: 0.5; animation: moveclouds2 15s linear infinite, sideWays2 6s ease-in-out infinite alternate;
+  }
+  &.deco9{
+    @include transform(scale(0.85));
+    left: 1440px; opacity: 0.8; animation: moveclouds2 17s linear infinite, sideWays2 4s ease-in-out infinite alternate;
+  }
+  &.deco10{
+    @include transform(scale(0.6) rotate(350deg));
+    left: 1000px; opacity: 0.9; animation: moveclouds2 23s linear infinite, sideWays2 2s ease-in-out infinite alternate;
+  }
+}
+
+body{font-family: NotoSansKR; font-size: 16px; font-weight: 400; color: #eee; background: #333; word-break: keep-all; /* overflow-x: hidden; */}
+*{box-sizing: border-box;}
+body.overflowy{overflow-y: hidden;}
+body.overflowX{overflow-X: hidden;}
