@@ -1,4 +1,13 @@
 $(document).ready(function () {
+  /* cntY배열에 담을 offset().top을 위해 우선적으로 .sticky_ss의 높이를 먼저 지정
+  큰 이미지때문에 로딩시간이 길게 발생해서
+  <div class="monitor_wrap"><img src="images/sulwhasoo_brand_story.jpg" height="3012" alt="모니터 속에 보이는 설화수 브랜드스토리 페이지" class="up_img"></div>
+  <img src="images/sulwhasoo_news.jpg" height="1483" alt="설화수 뉴스레터 페이지" class="fade_down">
+  img 태그에 height()를 선언해 놓는다  */
+  $('.sticky_ss').css({
+    height: $(window).width() + $('.up_img').height() + ($(window).height() - $('.monitor_wrap').height())
+  });
+
   // 공통 변수 선언
   const $cnt = $('#contents .section'); // home, portfolio, about me
   const total = $cnt.length; // $cnt 개수
@@ -6,6 +15,8 @@ $(document).ready(function () {
   for (let i = 0; i < total; i++) {
     cntY[i] = $cnt.eq(i).offset().top;
   }
+  console.log(cntY);
+  
   let timerScroll = 0;
   const $ipodUl = $('#ipodScreen .ipod_list');
   const $ipodLi = $ipodUl.children();
@@ -260,11 +271,11 @@ $(window).on('scroll', function () {
     }); //5422px;
 
     // fixed로 고정시(sticky가 적용되는 동안 .intro_sulwhasoo.fix 라는 클래스명이 추가됨) => 필요없으면 제거하기
-    if (scrollY >= stickyWrapY && scrollY < $('.bg_sulwhasoo').offset().top) {
-      $('.intro_sulwhasoo').addClass('fix');
-    } else {
-      $('.intro_sulwhasoo').removeClass('fix');
-    }
+    // if (scrollY >= stickyWrapY && scrollY < $('.bg_sulwhasoo').offset().top) {
+    //   $('.intro_sulwhasoo').addClass('fix');
+    // } else {
+    //   $('.intro_sulwhasoo').removeClass('fix');
+    // }
 
     // 모니터 프레임
     if (scrollY < stickyWrapY) { //스티키 상단영역
@@ -548,152 +559,4 @@ $(window).on('scroll', function () {
     $cntWrap.find('.container').eq(tgNum).siblings().attr({'aria-hidden': true,      'inert': ''}).find('a, button, .tabIndex').attr('tabIndex', -1);
   }
   });
-
-
-
-  // else if(){
-
-  // }
-
-    // const $cntWrap = $('#container_wrap');
-    // const $pageLi = $('.pagination ul li');
-    // const $cnt3Cnt = $('#container_wrap .container');
-    // const cnt3Total = $('#container_wrap .container').length;
-    // let tgNum = 0;
-    // let $cnt3CntY;
-    // const maxStep = cnt3Total - 1;
-    // let winWid = $(window).width();
-    // let timerResize = 0;
-    // let timerScroll = 0;
-
-    // if ($(this).is('.normal')) {
-    //   // 초기화 작업
-    //   $('#cnt3').removeClass('spring summer fall winter');
-    //   $cntWrap.removeAttr('style', 'aria-live');
-    //   clearTimeout(timerResize);
-    //   clearTimeout(timerScroll);
-    //   clearTimeout(timerResize);
-    // } else if ($(this).is('.spring')) {
-    //   // 초기화 작업
-    //   $('#cnt3').addClass('spring').removeClass('summer fall winter');
-    //   clearTimeout(timerResize);
-    //   clearTimeout(timerScroll);
-    //   clearTimeout(timerResize);
-
-    //   $pageLi.eq(tgNum).addClass('on').siblings().removeClass('on');
-    //   $cntWrap.css({width: cnt3Total * winWid}).attr({'aria-live': 'polite'});
-
-    //   $pageLi.children().on('click', function () {
-    //     if ($cntWrap.is(':animated')) return false;
-    //     tgNum = $(this).parent().index();
-    //     $pageLi.eq(tgNum).addClass('on').siblings().removeClass('on');
-    //     $cntWrap.stop().animate({
-    //       marginLeft: -tgNum * winWid
-    //     }, 500, a11y);
-    //   });
-    //   // prev, next 버튼
-    //   $('#cnt3 .p_n button').on('click', function () {
-    //     const btnNum = $(this).index();
-    //     if ($cntWrap.is(':animated')) return false;
-    //     if (btnNum === 0 && tgNum === 0) return false;
-    //     else if (btnNum === 1 && tgNum === maxStep) return false;
-    //     btnNum === 0 ? tgNum-- : tgNum++;
-    //     $pageLi.eq(tgNum).addClass('on').siblings().removeClass('on');
-    //     // console.log(tgNum);
-    //     $cntWrap.stop().animate({
-    //       marginLeft: -tgNum * winWid
-    //     }, 500, a11y);
-    //   });
-
-    //   $(document).on('keydown', function (e) {
-    //     if ($cntWrap.is(':animated')) return false;
-    //     const key = e.keyCode;
-    //     const $tg = $(e.target);
-    //     console.log(key);
-    //     if ((key == 37) && tgNum > 0) tgNum--; // 왼쪽방향키
-    //     else if ((key === 39) && tgNum < cnt3Total - 1) tgNum++; //  오른쪽 방향키
-    //     else if ((key === 13 || key === 32) && ($tg.is('.p_n button'))) tgNum = $tg.index();
-    //     else if ((key === 13 || key === 32) && ($tg.is('.page_btn'))) tgNum = $tg.parent().index();
-
-    //     $pageLi.eq(tgNum).addClass('on').siblings().removeClass('on');
-    //     $cntWrap.stop().animate({
-    //       marginLeft: -tgNum * winWid
-    //     }, 500, a11y);
-    //     // console.log(tgNum);
-    //   });
-
-    // } else if ($(this).is('.summer')) {
-    //   // 초기화 작업
-    //   $('#cnt3').addClass('summer').removeClass('spring fall winter');
-    //   $cntWrap.removeAttr('style', 'aria-live');
-
-    //   $(window).on('resize', function () {
-    //     clearTimeout(timerResize);
-    //     timerResize = setTimeout(function () {
-    //     $cnt3CntY = new Array(cnt3Total);
-    //     for (let c = 0; c < cnt3Total; c++) {
-    //       $cnt3CntY[c] = $cnt3Cnt.eq(c).offset().top;
-    //     }
-    //       $('html, body').stop().animate({scrollTop: $cnt3CntY[tgNum]}, 500, 'easeOutBack', a11y);
-    //     }, 50);
-    //   });
-    //   $(window).trigger('resize');
-
-    //   $(window).on('scroll', function () {
-    //     clearTimeout(timerScroll);
-    //     timerScroll = setTimeout(function () {
-    //       $pageLi.each(function (idx) {
-    //         if ($(window).scrollTop() >= $cnt3CntY[idx]) {
-    //           $(this).addClass('on').siblings().removeClass('on');
-    //           tgNum = idx;
-    //           a11y();
-    //         }
-    //       });
-    //     }, 20);
-    //   });
-
-    //   $pageLi.children().on('click', function () {
-    //     if ($('html, body').is(':animated')) return false;
-    //     tgNum = $(this).parent().index();
-    //     $(this).parent().addClass('on').siblings().removeClass('on');
-    //     $('html, body').stop().animate({
-    //       scrollTop: $cnt3CntY[tgNum]
-    //     }, 700, a11y);
-    //   });
-
-    //   $(document).on('keydown', function (e) {
-    //     if ($('html, body').is(':animated')) return false;
-    //     const key = e.keyCode;
-    //     // console.log(key);
-    //     const $tg = $(e.target);
-    //     if (key === 38 && tgNum > 0) tgNum--; // 상단 방향키
-    //     else if (key === 40 && tgNum < total) tgNum++; // 하단 방향키
-    //     else if ((key === 13 || key === 32) && $tg.is('.nav_btn')) tgNum = $(this).parent().index();
-
-    //     $('html, body').stop().animate({
-    //       scrollTop: $cnt3CntY[tgNum]
-    //     }, 700, a11y);
-    //   });
-
-    // } else if ($(this).is('.fall')) {
-    //   $('#cnt3').addClass('fall').removeClass('spring summer winter');
-    //   $cntWrap.removeAttr('style', 'aria-live');
-    //   clearTimeout(timerResize);
-    //   clearTimeout(timerScroll);
-    //   clearTimeout(timerResize);
-
-    // } else if ($(this).is('.winter')) {
-    //   $('#cnt3').addClass('winter').removeClass('spring summer fall');
-    //   $cntWrap.removeAttr('style', 'aria-live');
-    //   clearTimeout(timerResize);
-    //   clearTimeout(timerScroll);
-    //   clearTimeout(timerResize);
-
-    // }
-  // });
-
-
-
-
-
 });
