@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  /* cntY배열에 담을 offset().top을 위해 우선적으로 .sticky_ss의 높이를 먼저 지정
+    /* cntY배열에 담을 offset().top을 위해 우선적으로 .sticky_ss의 높이를 먼저 지정
   큰 이미지때문에 로딩시간이 길게 발생해서
   <div class="monitor_wrap"><img src="images/sulwhasoo_brand_story.jpg" height="3012" alt="모니터 속에 보이는 설화수 브랜드스토리 페이지" class="up_img"></div>
   <img src="images/sulwhasoo_news.jpg" height="1483" alt="설화수 뉴스레터 페이지" class="fade_down">
@@ -7,7 +7,6 @@ $(document).ready(function () {
   $('.sticky_ss').css({
     height: $(window).width() + $('.up_img').height() + ($(window).height() - $('.monitor_wrap').height())
   });
-
   // 공통 변수 선언
   const $cnt = $('#contents .section'); // home, portfolio, about me
   const total = $cnt.length; // $cnt 개수
@@ -15,8 +14,6 @@ $(document).ready(function () {
   for (let i = 0; i < total; i++) {
     cntY[i] = $cnt.eq(i).offset().top;
   }
-  console.log(cntY);
-  
   let timerScroll = 0;
   const $ipodUl = $('#ipodScreen .ipod_list');
   const $ipodLi = $ipodUl.children();
@@ -271,11 +268,11 @@ $(window).on('scroll', function () {
     }); //5422px;
 
     // fixed로 고정시(sticky가 적용되는 동안 .intro_sulwhasoo.fix 라는 클래스명이 추가됨) => 필요없으면 제거하기
-    // if (scrollY >= stickyWrapY && scrollY < $('.bg_sulwhasoo').offset().top) {
-    //   $('.intro_sulwhasoo').addClass('fix');
-    // } else {
-    //   $('.intro_sulwhasoo').removeClass('fix');
-    // }
+    if (scrollY >= stickyWrapY && scrollY < $('.bg_sulwhasoo').offset().top) {
+      $('.intro_sulwhasoo').addClass('fix');
+    } else {
+      $('.intro_sulwhasoo').removeClass('fix');
+    }
 
     // 모니터 프레임
     if (scrollY < stickyWrapY) { //스티키 상단영역
@@ -550,13 +547,14 @@ $(window).on('scroll', function () {
       $cntWrap.removeAttr('style aria-live');
       $cntWrap.children().removeAttr('aria-hidden inert').addClass('fade');
     }   
+    
       // cnt3 안의 본문
-  function cnt3A11y() {
-    // 현재 본문
-    $cntWrap.find('.container').eq(tgNum).removeAttr('aria-hidden inert').find('a, button').removeAttr('tabIndex');
-    $cntWrap.find('.container').eq(tgNum).find('.tabIndex').attr('tabIndex', 0)
-    // 나머지 본문들
-    $cntWrap.find('.container').eq(tgNum).siblings().attr({'aria-hidden': true,      'inert': ''}).find('a, button, .tabIndex').attr('tabIndex', -1);
-  }
+    function cnt3A11y() {
+      // 현재 본문
+      $cntWrap.find('.container').eq(tgNum).removeAttr('aria-hidden inert').find('a, button').removeAttr('tabIndex');
+      $cntWrap.find('.container').eq(tgNum).find('.tabIndex').attr('tabIndex', 0)
+      // 나머지 본문들
+      $cntWrap.find('.container').eq(tgNum).siblings().attr({'aria-hidden': true, 'inert': ''}).find('a, button, .tabIndex').attr('tabIndex', -1);
+    }
   });
 });
