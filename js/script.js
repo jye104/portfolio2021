@@ -1,16 +1,12 @@
 $(document).ready(function () {
-    /* cntY배열에 담을 offset().top을 위해 우선적으로 .sticky_ss의 높이를 먼저 지정
-  큰 이미지때문에 로딩시간이 길게 발생해서
-  <div class="monitor_wrap"><img src="images/sulwhasoo_brand_story.jpg" height="3012" alt="모니터 속에 보이는 설화수 브랜드스토리 페이지" class="up_img"></div>
-  <img src="images/sulwhasoo_news.jpg" height="1483" alt="설화수 뉴스레터 페이지" class="fade_down">
-  img 태그에 height()를 선언해 놓는다  */
+
   $('.sticky_ss').css({
     height: $(window).width() + $('.up_img').height() + ($(window).height() - $('.monitor_wrap').height())
   });
   // 공통 변수 선언
   const $cnt = $('#contents .section'); // home, portfolio, about me
-  const total = $cnt.length; // $cnt 개수
-  let cntY = new Array(total); // 각 $cnt마다 높이값
+  const total = $cnt.length; 
+  let cntY = new Array(total); 
   for (let i = 0; i < total; i++) {
     cntY[i] = $cnt.eq(i).offset().top;
   }
@@ -280,16 +276,13 @@ $(window).on('scroll', function () {
       gsap.to('.computer', {scale: 0.65, left: 0, duration: 0.5, ease: Power3.easeOut
       });
       gsap.to('.up_img', {top: 0, duration: 0.5, ease: Power3.easeOut});
-    } else if (scrollY < stickyWrapY + winWid) { //스티키 영역진입 부터 1920(브라우저 가로)픽셀 까지만 - .computer 크기 0.65에서 1로 확대하기
-      // console.log('2) 스티키 영역진입 부터 1920(브라우저 가로)픽셀 까지만');
+    } else if (scrollY < stickyWrapY + winWid) { 
       const ratio = ((1 - firstScale) / winWid) * move + firstScale;
-      // const ratio =  ((1-0.65) / 1903 ) * move + 0.65;
-      // .computer를 가운데 위치 시키기 위한 변수: 175는 .computer가 scale 0.65일 경우 650픽셀에서 1이 되었을 경우 1000 => 1000-650 / 2 = 175
       leftPos = ((computerX - 175) - ((winWid - $('.computer').width()) / 2)) * move / winWid;
       // console.log(ratio, leftPos);
 
       gsap.to('.computer', {scale: ratio, left: -leftPos, duration: 0.5, ease: Power3.easeOut});
-      // gsap.to('.computer', {scale: ratio, left: -move*0.2, duration: 0.5, ease: Power3.easeOut});
+
       gsap.to('.up_img', {top: 0, duration: 0.5, ease: Power3.easeOut});
       $('#cnt2').find('.txt_sulwhasoo').removeClass('opacity hidden');
       $('#cnt2').find('.brand_txt').removeClass('visible');
